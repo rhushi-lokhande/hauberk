@@ -1,0 +1,29 @@
+<div class="left-menu-container">
+    <div class="user-profile">
+        <div class="user-img">
+            <img src="../../../../assets/img/icon/user/user-icon.png" alt="">
+        </div>
+        <div class="user-details">
+            <span>Rhushikesh Lokhande</span><br>
+            <span>Rhushi.lokhande@gmail.com</span><br>
+            <span>8446771076</span>
+        </div>
+    </div>
+    <div class="side-menu">
+        <ul>
+            <li class="menu-item " [ngClass]="{'active':menu.active,'has-sub-menu':menu.subMenu}" *ngFor="let menu of menuList;">
+                <div class="ripple menu-title" (click)="opneMenu(menu)">
+                    <i class="fa fa-rocket fa-lg"></i>
+                    <span>{{menu.title}}</span>
+                </div>
+                <ul *ngIf="menu.subMenu" class="sub-menu">
+                    <li *ngFor="let submenu of menu.subMenu;" class="menu-item" [ngClass]="{'active':submenu.active}">
+                        <div class="ripple  menu-title" (click)="opneMenu(submenu)">
+                            {{submenu.title}}
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

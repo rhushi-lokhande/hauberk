@@ -1,0 +1,18 @@
+<app-ctn-navbar></app-ctn-navbar>
+
+<div class="dashboard-container">
+    <div class="sidenav" [ngClass]="{'collapse':collapse}">
+        <app-ctn-sidenav></app-ctn-sidenav>
+    </div>
+    <div class="main-outer">
+        <div class="main-container">
+            <!--<button (click)="collapseSideNav()">collapse</button>-->
+
+            <router-outlet>
+            </router-outlet>
+        </div>
+        <div class="copy-right">
+            Copyright <span class="brand bold">©</span> 2018 In<span class="brand bold">I</span>finity
+        </div>
+    </div>
+</div>

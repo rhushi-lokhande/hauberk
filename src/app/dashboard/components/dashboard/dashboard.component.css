@@ -1,0 +1,52 @@
+.dashboard-container {
+    display: flex;
+    height: calc(100% - 64px);
+    width: 100%;
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #FFF;
+    width: 300px;
+    box-shadow: 0px 5px 4px 3px #cccccc;
+    margin-right: 4px;
+    overflow: hidden;
+}
+
+.sidenav.collapse {
+    width: 60px;
+    display: block;
+}
+
+.sidenav.collapse:hover {
+    width: 300px;
+    display: block;
+    -webkit-transition: width 0.8s;
+    /* Safari */
+    transition: width 0.8s;
+}
+
+.main-outer {
+    height: 100%;
+    background-color: #fafafa;
+    flex: 1;
+}
+
+.main-container {
+    width: 100%;
+    height: auto;
+    height: calc(100% - 30px);
+    padding: 25px;
+    overflow-y: auto
+}
+
+.copy-right {
+    width: 100%;
+    height: 30px;
+    background-color: #f3f3f3;
+    border-top: 1px solid #d4d4d4;
+    bottom: 0px;
+    text-align: center;
+    padding: 4px;
+    font-size: 14px;
+}
