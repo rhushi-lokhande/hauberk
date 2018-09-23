@@ -8,20 +8,20 @@
 
 <mat-toolbar color="primary">
 
-    <button mat-button routerLink="/">
-        <!--<mat-icon>home</mat-icon> -->
-        Home</button>
+    <!-- <button mat-button routerLink="/">
+        Home
+    </button> -->
 
     <!-- This fills the remaining space of the current row -->
     <span class="fill-remaining-space"></span>
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-        <button mat-button routerLink="/dashboard/order">Products</button>
         <button mat-button routerLink="/dashboard">Dashboard</button>
+        <button mat-button routerLink="/dashboard/user">User</button>
         <button mat-button (click)="logout()">Logout</button>
     </div>
-    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+    <!-- <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
-    </button>
+    </button> -->
 
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">

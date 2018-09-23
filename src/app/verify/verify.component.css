@@ -1,0 +1,24 @@
+.verify-container {
+    background: #b3bead;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #b3bead 0%, #dfe5d7 60%, #fcfff4 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #b3bead 0%, #dfe5d7 60%, #fcfff4 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #b3bead 0%, #dfe5d7 60%, #fcfff4 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3bead', endColorstr='#fcfff4', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.message{
+    padding: 40px;
+    box-shadow: 3px 4px 6px #cacaca;
+    background-color: #FFF;
+    border: solid 1px #cccccc;
+}

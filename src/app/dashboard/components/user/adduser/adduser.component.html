@@ -1,0 +1,57 @@
+<mat-card>
+
+	<mat-card-header>
+		New User
+	</mat-card-header>
+
+	<mat-card-content>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':newUserValidation.firstName}" [(ngModel)]="newUser.firstName" placeholder="First Name"
+						 value="" />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':newUserValidation.lastName}" [(ngModel)]="newUser.lastName" placeholder="Last Name"
+						 value="" />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':newUserValidation.phoneNo}" [(ngModel)]="newUser.phoneNo" placeholder="Phone No"
+						 value="" />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':newUserValidation.email}" [(ngModel)]="newUser.email" placeholder="Email"
+						 value="" />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<input type="password" class="form-control" [ngClass]="{'error':newUserValidation.password}" placeholder="password" [(ngModel)]="newUser.password">
+						<div class="input-group-append">
+							<button mat-raised-button color="primary" (click)="generatePassword()">Generate password</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<mat-select placeholder="Role" [ngClass]="{'error':newUserValidation.roles}" multiple [(ngModel)]="newUser.roles">
+						<mat-option *ngFor="let role of roles" [value]="role">{{role.title}}</mat-option>
+					</mat-select>
+				</div>
+			</div>
+		</div>
+	</mat-card-content>
+
+	<mat-card-actions class="text-right">
+		<button mat-raised-button color="primary" (click)="addNewUser()">Add User</button>
+	</mat-card-actions>
+
+</mat-card>

@@ -3,8 +3,12 @@ const User = require('../../model/user.model');
 const Organization = require('../../model/organization.model');
 
 let loginController = {
-    isUserLogin: function (req, res) {
-        return res.send(req.isAuthenticated());
+    isUserLogin: async function (req, res) {
+        if (req.isAuthenticated()) {
+            let organization = await Organization.findById(req.user.organization).exec();
+            return res.send({isVerified: organization.is_verified});
+        }
+        return res.send({isLogin:false});
     },
     googleLogin: function (req, res) {
         return passport.authenticate('google', { scope: ['profile', 'email'] });
@@ -14,6 +18,7 @@ let loginController = {
         return passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/dashboard' });
     },
     signUp: async function (req, res) {
+        console.log(req.body)
         let organization = await Organization.findOne({ 'org_name': req.body.orgName }).exec();
         if (organization) {
             return res.send('This organization is already registered');
@@ -24,33 +29,35 @@ let loginController = {
             return res.send('This email is already registered');
         }
 
-        let newOrganization = new Organization();
-
-        newOrganization.org_name = req.body.org_name;
-        newOrganization.email = req.body.orgEmail;
-
-        newOrganization = await newOrganization.save(err => {
-            if (err) {
-                console.log(err);
-                return res.send(err);
-            }
+        let newOrganization = new Organization({
+            org_name: req.body.orgName,
+            email: req.body.orgEmail
         });
 
-        let newUser = new User();
-        newUser.firstName = req.body.firstName;
-        newUser.lastName = req.body.lastName;
-        newUser.phone = req.body.phoneNo;
-        newUser.email = req.body.email;
-        newUser.organization = newOrganization;
-        newUser.is_owner = true;
-        console.log('decypt pass: ', (Buffer.from(req.body.password, 'base64').toString()));
-        newUser.setPassword((Buffer.from(req.body.password, 'base64').toString()));
-        await newUser.save(err => {
+        newOrganization.save((err, _newOrganization) => {
             if (err) {
                 console.log(err);
                 return res.send(err);
             }
-            return res.redirect(`./login?username=${req.body.email}&password=${req.body.password}`)
+
+
+            console.log(_newOrganization)
+
+            let newUser = new User();
+            newUser.first_name = req.body.firstName;
+            newUser.last_name = req.body.lastName;
+            newUser.phone = req.body.phoneNo;
+            newUser.email = req.body.email;
+            newUser.organization = _newOrganization;
+            newUser.is_owner = true;
+            newUser.setPassword((Buffer.from(req.body.password, 'base64').toString()));
+            newUser.save(err => {
+                if (err) {
+                    console.log(err);
+                    return res.send(err);
+                }
+                return res.redirect(`./login?username=${req.body.email}&password=${req.body.password}`)
+            });
         });
     },
     login: function (req, res) {

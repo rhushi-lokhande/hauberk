@@ -8,11 +8,10 @@
     color: #fff;
     margin-top: 4%;
 }
-.register-left input{
+.register-left a{
     border: none;
     border-radius: 1.5rem;
-    padding: 2%;
-    width: 60%;
+    padding: 4% 20%;
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;

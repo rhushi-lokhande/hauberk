@@ -10,6 +10,8 @@ var session = require('express-session')
 var auth = require('./routes/auth');
 var secureRoute = require('./routes/secureRoute');
 var config = require('./config');
+var master = require('./master');
+
 
 let app = express();
 app.set('port', process.env.PORT  || config.port); // Set port to 3000 or the provided PORT variable
@@ -23,7 +25,7 @@ function connect() {
     mongoose.connect(config.mongoConnection, options);
 }
 
-
+master();
 app.use(session({
     secret: 'keyboard cat',
     resave: false,

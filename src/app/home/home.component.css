@@ -1,0 +1,41 @@
+
+.background{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left a{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 4% 20%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+
+
+#header{
+    padding-top: 80px;
+}
+.img-scr{
+    max-width: 100%;
+	border-radius: 8px;
+    box-shadow: 7px 6px 15px 0px rgba(0, 0, 0, 0.32);    
+    transform: rotate3d(0, 1, 0, -11deg) scale(.9, 1);
+}
+
+.src-img-cont{
+	perspective: 300px;
+}

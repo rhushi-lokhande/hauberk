@@ -1,0 +1,65 @@
+<mat-card>
+
+    <mat-card-header>
+        <h4>Roles</h4>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <input type="text" class="form-control" [ngClass]="{'error':valid.title}" [(ngModel)]="newRole.title" placeholder="Role"
+                            value="" />
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <mat-select placeholder="Permission" [ngClass]="{'error':valid.permission}" [(ngModel)]="newRole.permission" multiple>
+                            <mat-option *ngFor="let permission of permissions" [value]="permission">{{permission.title}}</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button mat-raised-button color="primary" (click)="addNewRole()">Add</button>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+
+    <div *ngIf="!roles.length">
+
+        <mat-grid-list cols="4" rowHeight="50px">
+            <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <h5>No Role created yet..</h5>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button mat-raised-button color="primary" routerLink="/dashboard/adduser">Add User</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </div>
+
+    <div *ngIf="roles.length">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Permission</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of roles;let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{role.title}}</td>
+                    <td>
+                        <mat-chip-list>
+                            <mat-chip color="accent" *ngFor="let permission of role.permission"> {{permission.title}}</mat-chip>
+                        </mat-chip-list>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>

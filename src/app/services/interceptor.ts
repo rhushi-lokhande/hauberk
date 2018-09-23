@@ -11,11 +11,13 @@ import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+import {MatSnackBar} from '@angular/material';
+
 
 @Injectable()
 export class InterceptService implements HttpInterceptor {
 
-	constructor(private router: Router) { }
+	constructor(private router: Router,public snackBar: MatSnackBar) { }
 
 	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		request = request.clone({
@@ -45,6 +47,10 @@ export class InterceptService implements HttpInterceptor {
 				if (error instanceof HttpErrorResponse) {
 					if (error.status === 302) {
 						this.router.navigate([error.error.url]);
+					} else if (error.status === 409){
+						this.snackBar.open(error.error,'',{
+							duration: 1500,
+						  });
 					}
 				}
 				// http response status code

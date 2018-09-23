@@ -4,8 +4,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardAuthGuard } from '../services/dashboardAuthGuard';
 
+import { UserRoute } from './components/user/user.module';
+import { RoleRoute } from './components/role/role.module';
+
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent, canActivate: [DashboardAuthGuard], }
+  {
+    path: 'dashboard', component: DashboardComponent,
+    canActivate: [DashboardAuthGuard],
+    children: [
+      ...UserRoute,
+      ...RoleRoute
+    ]
+  },
+
 ];
 
 @NgModule({

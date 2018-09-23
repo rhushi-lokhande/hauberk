@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 // modules
 import { DashboardRoutModule } from './dashboard.route';
-import { MatModule } from './mat.module'
-
+import { MatModule } from './mat.module';
+import { UserModule } from './components/user/user.module';
+import { RoleModule } from './components/role/role.module';
 
 // component
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -14,7 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 // services
 import { LoginService } from '../login/login.service';
 import { DashboardAuthGuard } from '../services/dashboardAuthGuard';
-
+import { DashboardService } from './components/dashboard/dashboard.service';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,10 @@ import { DashboardAuthGuard } from '../services/dashboardAuthGuard';
   imports: [
     BrowserModule,
     MatModule,
-    DashboardRoutModule
+    DashboardRoutModule,
+    UserModule,
+    RoleModule
   ],
-  providers: [LoginService, DashboardAuthGuard],
+  providers: [LoginService, DashboardAuthGuard, DashboardService],
 })
 export class DashboardModule { }

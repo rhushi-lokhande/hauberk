@@ -9,7 +9,7 @@ import { RegisterService } from './register.service';
 export class RegisterComponent {
 
 	register = {
-		org_name: '',
+		orgName: '',
 		orgEmail: '',
 		firstName: '',
 		lastName: '',
@@ -20,7 +20,7 @@ export class RegisterComponent {
 	}
 
 	registrationValidation = {
-		org_name: false,
+		orgName: false,
 		orgEmail: false,
 		firstName: false,
 		lastName: false,
@@ -54,9 +54,9 @@ export class RegisterComponent {
 		const emailExp = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 		const noExp = /^[6789]\d{9}$/;
 
-		this.registrationValidation.org_name = false;
-		if(!this.register.org_name){
-			this.registrationValidation.org_name = true;
+		this.registrationValidation.orgName = false;
+		if(!this.register.orgName){
+			this.registrationValidation.orgName = true;
 			isValid = false;
 
 		}

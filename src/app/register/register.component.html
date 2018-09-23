@@ -5,7 +5,7 @@
 				<img src="../../assets/images/regi_logo_white.png" alt="" />
 				<h3>Welcome</h3>
 				<p>You are 30 seconds away from creating new way to organize your organization</p>
-				<input type="submit" name="" value="Login" />
+				<a href='/login' name="">Login</a>
 				<br/>
 			</div>
 			<div class="col-md-9 register-right">
@@ -15,46 +15,54 @@
 						<div class="row register-form">
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" [ngClass]="{'error':registrationValidation.org_name}" [(ngModel)]="register.org_name" placeholder="Organization name" value="" />
+									<input type="text" class="form-control" [ngClass]="{'error':registrationValidation.orgName}" [(ngModel)]="register.orgName"
+									 placeholder="Organization name" value="" />
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" [ngClass]="{'error':registrationValidation.orgEmail}" [(ngModel)]="register.orgEmail" placeholder="Organization email" value="" />
+									<input type="text" class="form-control" [ngClass]="{'error':registrationValidation.orgEmail}" [(ngModel)]="register.orgEmail"
+									 placeholder="Organization email" value="" />
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" [ngClass]="{'error':registrationValidation.firstName}" [(ngModel)]="register.firstName" placeholder="First Name" value="" />
+									<input type="text" class="form-control" [ngClass]="{'error':registrationValidation.firstName}" [(ngModel)]="register.firstName"
+									 placeholder="First Name" value="" />
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Last Name" [ngClass]="{'error':registrationValidation.lastName}" [(ngModel)]="register.lastName" value="" />
+									<input type="text" class="form-control" placeholder="Last Name" [ngClass]="{'error':registrationValidation.lastName}" [(ngModel)]="register.lastName"
+									 value="" />
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Phone No" [ngClass]="{'error':registrationValidation.phoneNo}" [(ngModel)]="register.phoneNo" value="" />
+									<input type="text" class="form-control" placeholder="Phone No" [ngClass]="{'error':registrationValidation.phoneNo}" [(ngModel)]="register.phoneNo"
+									 value="" />
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Email"  [ngClass]="{'error':registrationValidation.email}" [(ngModel)]="register.email" value="" />
+									<input type="text" class="form-control" placeholder="Email" [ngClass]="{'error':registrationValidation.email}" [(ngModel)]="register.email"
+									 value="" />
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Password" [ngClass]="{'error':registrationValidation.password}" [(ngModel)]="register.password" value="" />
+									<input type="password" class="form-control" placeholder="Password" [ngClass]="{'error':registrationValidation.password}"
+									 [(ngModel)]="register.password" value="" />
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Confirm password" value="" [ngClass]="{'error':registrationValidation.cPassword}" [(ngModel)]="register.cPassword" />
+									<input type="password" class="form-control" placeholder="Confirm password" value="" [ngClass]="{'error':registrationValidation.cPassword}"
+									 [(ngModel)]="register.cPassword" />
 								</div>
 							</div>
 							<div class="col-md-6 offset-md-6">
-								<button class="btnRegister"  (click)="registerOrganization()">Register</button>
+								<button class="btnRegister" (click)="registerOrganization()">Register</button>
 							</div>
 						</div>
 					</div>

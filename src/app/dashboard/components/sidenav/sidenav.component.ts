@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
     selector: 'app-ctn-sidenav',
@@ -7,16 +7,20 @@ import { Router } from '@angular/router';
 })
 
 export class SidenavComponent implements OnInit {
+
+    @Input() user: Object;
+    @Input() org: Object;
+
     constructor(private router: Router) { }
     menuList = [{
-        title: 'Service',
-        icon: 'icon',
-        path: '/service',
+        title: 'Users',
+        icon: 'user',
+        path: '/user',
     },
     {
-        title: 'Order',
-        icon: 'icon',
-        path: '/order'
+        title: 'Role',
+        icon: 'gear',
+        path: '/role'
     },
     {
         title: 'menu 2',

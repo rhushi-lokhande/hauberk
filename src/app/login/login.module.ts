@@ -7,15 +7,14 @@ import { FormsModule } from '@angular/forms';
 // component 
 import { LoginComponent } from './login.component';
 
-
 // services
-import { LoginService } from './login.service'
-
+import { LoginService } from './login.service';
+import { AuthGuard } from '../services/loginAuthGuard';
 
 
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -26,6 +25,6 @@ const routes: Routes = [
         BrowserModule, CommonModule, FormsModule,
         RouterModule.forRoot(routes)
     ],
-    providers: [LoginService],
+    providers: [LoginService, AuthGuard],
 })
 export class LoginModule { }

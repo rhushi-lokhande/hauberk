@@ -15,10 +15,12 @@ export class AuthGuard implements CanActivate {
 	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
 		return Observable.create(observer => {
 			this._loginService.isLogin()
-				.subscribe((res) => {
-					if (res) {
-						this.router.navigate(['dashboard']);
-					}
+				.subscribe((res:any) => {
+					if (res.isVerified === false) {
+                        this.redirectToVerify(state);
+                    } else if (res.isVerified || res.isLogin) {
+                        this.router.navigate(['dashboard']);
+                    } 
 					observer.next(true);
 					observer.complete();
 				}, (err) => {
@@ -32,6 +34,9 @@ export class AuthGuard implements CanActivate {
 	redirectToLogin(state: RouterStateSnapshot) {
 		this.router.navigate(['login'], { queryParams: { q: state.url } });
 	}
+    redirectToVerify(state: RouterStateSnapshot) {
+        this.router.navigate(['verify'], { queryParams: { q: state.url } });
+    }
 
 }
 
