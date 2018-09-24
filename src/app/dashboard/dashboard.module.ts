@@ -6,6 +6,8 @@ import { DashboardRoutModule } from './dashboard.route';
 import { MatModule } from './mat.module';
 import { UserModule } from './components/user/user.module';
 import { RoleModule } from './components/role/role.module';
+import { DealModule } from './components/deal/deal.module';
+import { LeadModule } from './components/lead/lead.module';
 
 // component
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -18,18 +20,20 @@ import { DashboardAuthGuard } from '../services/dashboardAuthGuard';
 import { DashboardService } from './components/dashboard/dashboard.service';
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    SidenavComponent,
-    NavbarComponent
-  ],
-  imports: [
-    BrowserModule,
-    MatModule,
-    DashboardRoutModule,
-    UserModule,
-    RoleModule
-  ],
-  providers: [LoginService, DashboardAuthGuard, DashboardService],
+	declarations: [
+		DashboardComponent,
+		SidenavComponent,
+		NavbarComponent
+	],
+	imports: [
+		BrowserModule,
+		MatModule,
+		DashboardRoutModule,
+		UserModule,
+		RoleModule,
+		DealModule,
+		LeadModule
+	],
+	providers: [LoginService, DashboardAuthGuard, DashboardService],
 })
 export class DashboardModule { }

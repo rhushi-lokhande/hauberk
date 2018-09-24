@@ -16,7 +16,7 @@ export class VerifyAuthGuard implements CanActivate {
         return Observable.create(observer => {
             this._loginService.isLogin()
                 .subscribe((res: any) => {
-                    if (res.isVerified===true) {
+                    if (res.isVerified===false) {
                     } else if (res.isVerified) {
                         this.router.navigate(['dashboard']);
                     } else if (!res.isLogin) {

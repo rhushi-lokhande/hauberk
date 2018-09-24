@@ -23,6 +23,16 @@ export class SidenavComponent implements OnInit {
         path: '/role'
     },
     {
+        title: 'Deal',
+        icon: 'briefcase',
+        path: '/deal'
+    },
+    {
+        title:'Lead',
+        icon:'clipboard',
+        path:'/lead'
+    },
+    {
         title: 'menu 2',
         icon: 'icon',
         path: '/order',
@@ -42,9 +52,20 @@ export class SidenavComponent implements OnInit {
     ];
     ngOnInit() { }
     opneMenu(menu) {
-        menu.active = !menu.active;
+        // this.toggleOtherOpenMenu();
+        menu.active = true;
         if (!menu.subMenu) {
             this.router.navigate(['/dashboard' + menu.path]);
         }
     }
+    // toggleOtherOpenMenu(menu?){
+    //      menu = menu || this.menuList;
+    //      menu.map(m=>{
+    //          m.active= !1;
+    //          if(m.subMenu){
+    //              this.toggleOtherOpenMenu(m.subMenu);
+    //          }
+    //      });
+
+    // }
 }
