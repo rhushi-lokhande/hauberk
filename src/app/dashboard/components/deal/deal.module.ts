@@ -16,7 +16,7 @@ import { dealService } from './deal.service';
 
 export const DealRoute: Routes = [
     { path: 'deal', component: DealComponent },
-    { path: 'new-deal', component: NewDealComponent },
+    { path: 'deal/new-deal', component: NewDealComponent },
 ]
 
 @NgModule({

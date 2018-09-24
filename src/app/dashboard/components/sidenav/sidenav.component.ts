@@ -11,7 +11,9 @@ export class SidenavComponent implements OnInit {
     @Input() user: Object;
     @Input() org: Object;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router) {
+        this.setCurrentActiveNav(router.url);
+     }
     menuList = [{
         title: 'Users',
         icon: 'user',
@@ -52,20 +54,35 @@ export class SidenavComponent implements OnInit {
     ];
     ngOnInit() { }
     opneMenu(menu) {
-        // this.toggleOtherOpenMenu();
+        this.toggleOtherOpenMenu();
         menu.active = true;
         if (!menu.subMenu) {
             this.router.navigate(['/dashboard' + menu.path]);
         }
     }
-    // toggleOtherOpenMenu(menu?){
-    //      menu = menu || this.menuList;
-    //      menu.map(m=>{
-    //          m.active= !1;
-    //          if(m.subMenu){
-    //              this.toggleOtherOpenMenu(m.subMenu);
-    //          }
-    //      });
-
-    // }
+    toggleOtherOpenMenu(menu?){
+         menu = menu || this.menuList;
+         menu.map(m=>{
+             m.active= !1;
+             if(m.subMenu){
+                 this.toggleOtherOpenMenu(m.subMenu);
+             }
+         });
+    }
+    setCurrentActiveNav(url){
+        console.log(url);
+        if(!url){
+            return;
+        }
+        url = url.split('/')
+        let activeUrl = url.pop();
+        let menu = this.menuList.find(m=>{
+            return m.path==='/'+activeUrl;
+        });
+        if(menu){
+            menu['active'] = true;
+        }else{
+            this.setCurrentActiveNav(url.join('/'))
+        }
+    }
 }

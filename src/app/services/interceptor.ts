@@ -26,11 +26,11 @@ export class InterceptService implements HttpInterceptor {
 			}
 		});
 
-		console.log('----request----');
+		// console.log('----request----');
 
-		console.log(request);
+		// console.log(request);
 
-		console.log('--- end of request---');
+		// console.log('--- end of request---');
 
 
 		return next.handle(request)
@@ -38,9 +38,9 @@ export class InterceptService implements HttpInterceptor {
 			tap(event => {
 				if (event instanceof HttpResponse) {
 
-					console.log(' all looks good');
+					// console.log(' all looks good');
 					// http response status code
-					console.log(event.status);
+					// console.log(event.status);
 				}
 			}, error => {
 

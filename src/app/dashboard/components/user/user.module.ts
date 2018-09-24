@@ -18,7 +18,7 @@ import { RoleService } from '../role/role.service';
 export const UserRoute: Routes = [
     { path: '', component: UserlistComponent },
     { path: 'user', component: UserlistComponent },
-    { path: 'adduser', component: AdduserComponent }
+    { path: 'user/adduser', component: AdduserComponent }
 ]
 
 

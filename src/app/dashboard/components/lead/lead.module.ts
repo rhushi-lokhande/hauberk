@@ -13,7 +13,7 @@ import { NewLeadComponent } from './new-lead/new-lead.component';
 
 export const LeadRoute: Routes = [
     { path: 'lead', component: LeadComponent },
-    { path: 'new-lead', component: NewLeadComponent },
+    { path: 'lead/new-lead', component: NewLeadComponent },
 ]
 
 @NgModule({
