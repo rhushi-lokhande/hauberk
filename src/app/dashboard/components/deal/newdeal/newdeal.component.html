@@ -13,10 +13,39 @@
 	<mat-card-content>
 		<div class="container">
 			<div class="row">
+				<div class="col-md-12">
+					<span>Deal Type</span>
+				</div>
 
 				<div class="col-md-6">
 					<div class="form-group">
-						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newRole" placeholder="User" value=""
+						<mat-select placeholder="Deal Type" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.dealType">
+							<mat-option *ngFor="let dealType of dealTypes" [value]="dealType">{{dealType.title}}</mat-option>
+						</mat-select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<mat-select placeholder="Deal Type" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.agent">
+							<mat-option *ngFor="let user of userList" [value]="user">{{user.first_name+' '+ user.last_name}}</mat-option>
+						</mat-select>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<br>
+					<span>Deal Details</span>
+					<hr>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<textarea class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.address" placeholder="Address"></textarea>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.size" placeholder="Size(sf)" value=""
 						/>
 					</div>
 				</div>
@@ -24,51 +53,91 @@
 
 				<div class="col-md-6">
 					<div class="form-group">
-						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newRole" placeholder="Deal Name" value=""
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.dealClosingDate" placeholder="Deal closing date"
+						 value="" />
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.city" placeholder="City" value=""
 						/>
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="form-group">
-						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newRole" placeholder="Date" value="" />
-					</div>
-				</div>
-
-				<div class="col-md-6">
-					<div class="form-group">
-						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newRole" placeholder="Agent Name" value=""
-						/>
-					</div>
-				</div>
-
-
-				<div class="col-md-6">
-					<div class="form-group">
-						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newRole" placeholder="Old Owner" value=""
-						/>
-					</div>
-				</div>
-
-
-				<div class="col-md-6">
-					<div class="form-group">
-						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newRole" placeholder="New Owner" value=""
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.area" placeholder="Area" value=""
 						/>
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="form-group">
-						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newRole" placeholder="Old Owner Address" value=""
-						/>
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.amount" placeholder="Sale price/financing amount:"
+						 value="" />
+					</div>
+				</div>
+
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.sfPrice" placeholder="Asking price per square foot:"
+						 value="" />
+					</div>
+				</div>
+
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.firstParty" placeholder="Tenant/Buyer/Lender:"
+						 value="" />
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="form-group">
-						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newRole" placeholder="New Owner Address" value=""
-						/>
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.firstPartyFirm" placeholder="Tenant/Buyer/Lender Rep Firm:"
+						 value="" />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.firstPartyContact" placeholder="Tenant/Buyer/Lender contact no:"
+						 value="" />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.secondParty" placeholder="Landlord/Seller/Borrower:"
+						 value="" />
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.secondPartyAgent" placeholder="Landlord/Seller/Borrower Rep Agent:"
+						 value="" />
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.secondPartyFirm" placeholder="Landlord/Seller/Borrower Rep Firm:"
+						 value="" />
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.secondPartyContact" placeholder="Landlord/Seller/Borrower contact No:"
+						 value="" />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" [ngClass]="{'error':valid}" [(ngModel)]="newDeal.note" placeholder="Additional Notes:"
+						 value="" />
 					</div>
 				</div>
 			</div>

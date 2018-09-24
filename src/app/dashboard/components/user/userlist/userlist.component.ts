@@ -14,7 +14,7 @@ export class UserlistComponent implements OnInit {
 	constructor(private userService: UserService, private _cdr: ChangeDetectorRef) { }
 
 	ngOnInit() {
-		this.userService.getUser().subscribe((res: any) => {
+		this.userService.getUsers().subscribe((res: any) => {
 			this.users = res;
 			this._cdr.markForCheck();
 		});

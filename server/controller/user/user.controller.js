@@ -22,7 +22,7 @@ let UserController = {
                 console.log(err);
                 return res.send(err);
             }
-            return res.send({msg:'User added successfully'});
+            return res.send({ msg: 'User added successfully' });
         });
     },
 
@@ -36,8 +36,25 @@ let UserController = {
             phone: 1,
             email: 1,
             role: 1,
-            createdAt: 1
+            createdAt: 1,
+            is_owner:1
         }, (err, data) => {
+            if (err) {
+                return res.send(err);
+            }
+            return res.send(data);
+        })
+    },
+    getCurrentUser: function (req, res) {
+        User.findById(req.user._id).populate('role').select({
+            first_name: 1,
+            last_name: 1,
+            phone: 1,
+            email: 1,
+            role: 1,
+            createdAt: 1,
+            is_owner:1
+        }).exec((err, data) => {
             if (err) {
                 return res.send(err);
             }

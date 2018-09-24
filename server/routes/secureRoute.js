@@ -28,6 +28,10 @@ router.post('/role', RoleController.addRole);
 let UserController = require('../controller/user/user.controller');
 router.get('/user', UserController.getUser);
 router.post('/user', UserController.addUser);
+router.get('/current-user', UserController.getCurrentUser);
+
+let DealTypeController = require('../controller/deal-type/deal-type.controller');
+router.get('/deal-type', DealTypeController.getDealType);
 
 
 module.exports = router

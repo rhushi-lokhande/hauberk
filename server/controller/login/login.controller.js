@@ -6,9 +6,11 @@ let loginController = {
     isUserLogin: async function (req, res) {
         if (req.isAuthenticated()) {
             let organization = await Organization.findById(req.user.organization).exec();
-            return res.send({isVerified: organization.is_verified});
+            return res.send({
+                isVerified: organization.is_verified,
+            });
         }
-        return res.send({isLogin:false});
+        return res.send({ isLogin: false });
     },
     googleLogin: function (req, res) {
         return passport.authenticate('google', { scope: ['profile', 'email'] });
